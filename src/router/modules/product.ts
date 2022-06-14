@@ -4,7 +4,8 @@ const routers:RouteRecordRaw={
    // name:'product',
    component: RouterView,
      meta:{//自定义路由 元数据
-      title:'商品'
+      title:'商品',
+      requiresAuth:true
      },
    children:[
     {

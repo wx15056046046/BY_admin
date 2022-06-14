@@ -6,10 +6,11 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { getLoginInfo } from '@/api/common'
-import { useRouter } from 'vue-router'
+import { useRouter,useRoute } from 'vue-router'
 import { store } from '@/store';
 
 const router = useRouter()
+const route = useRoute()
 onMounted(() => {
   
 })
@@ -20,6 +21,11 @@ const login = ()=>{
    //    if (res.data.code == 0) {
       // 存储个人信息
       // store.commit('setUserInfo',{...res.data.data.user_info,token:res.data.data.token})
+      let redirect =route.query.redirect || '/'
+      if(typeof redirect != 'string'){
+            redirect ='/'
+      }
+       router.replace(redirect)
       //    router.replace({
       //          name:'home'
       //    })
